@@ -93,6 +93,11 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="EhQ-nA-pmt">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="539"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </activityIndicatorView>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoImageViewCell" id="aNY-w5-7fz" customClass="PhotoCollectionViewCell" customModule="VirtualTourist" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -163,6 +168,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="EhQ-nA-pmt" id="HND-Ya-lOD"/>
                         <outlet property="collectionView" destination="Tab-mN-o35" id="ypd-ih-S3l"/>
                         <outlet property="deleteButton" destination="o9B-15-O4z" id="Uus-Qv-Axb"/>
                         <outlet property="doneButton" destination="X1W-Jm-vU0" id="9Y7-FE-tpC"/>

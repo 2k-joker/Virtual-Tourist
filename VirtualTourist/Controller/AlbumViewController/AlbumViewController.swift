@@ -25,6 +25,7 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var refreshCollectionButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: View States
     override func viewDidLoad() {
@@ -75,8 +76,10 @@ class AlbumViewController: UIViewController {
     }
 
     func searchFlickrPhotosForPin() {
+        activityIndicator.startAnimating()
         refreshCollectionButton.isEnabled = false
         guard (fetchResultsController.fetchedObjects?.isEmpty)! else {
+            activityIndicator.stopAnimating()
             refreshCollectionButton.isEnabled = true
             return
         }
@@ -88,6 +91,8 @@ class AlbumViewController: UIViewController {
     }
     
     func handleSearchPhotosResponse(photosData: FlickrPhotosData?, error: Error?) {
+        activityIndicator.stopAnimating()
+
         guard let photosData = photosData else {
             refreshCollectionButton.isEnabled = true
             presentErrorMessage(error!.localizedDescription)
